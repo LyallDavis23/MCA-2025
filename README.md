@@ -5,4 +5,4 @@
 
 ## Challenges faced when working with music and music-related data.
 
-Jazz music is often prepared with a lead sheet or arrangement depending on the size of the group of performers. However, many performances and recordings have 
+Jazz music is often prepared with a lead sheet or arrangement depending on the size of the group of performers. However, many performances and recordings have imporovised sections in each of the instruments. This can sometimes make it difficult to find scores with accurate notation.
