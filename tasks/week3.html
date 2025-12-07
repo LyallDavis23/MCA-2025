@@ -1,75 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
+    <!-- Version 1.0 -->
 <head>
     <meta charset="utf-8">
     <title>My Piece in Verovio</title>
     <style>
-        html, body {
-            width: 100%;
-            height: 100%;
-            margin: 0;
-            font-family: sans-serif;
-        }
-        .box {
-            display: flex;
-            flex-flow: column;
-            height: 100%;
-        }
-        .box .header {
-            flex: 0 1 auto;
-            padding: 10px;
-        }
-        .box #app {
-            flex: 1 1 auto;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: auto;
-        }
+    html, body {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+    }
+    .box {
+        display: flex;
+        flex-flow: column;
+        height: 100%;
+    }
+    .box .header {
+       flex: 0 1 auto;
+    }
+    .box #app {
+        flex: 1 1 auto;
+    }
     </style>
 </head>
 <body>
     <div class="box">
-        <div class="header">
-            <h1>Week 3</h1>
-            <p>In this week's task, I rendered my chosen piece in Verovio, beginning by exporting it as a MusicXML file and an MEI file.</p>
-        </div>
-        <div id="app">Loading your music...</div>
+    <div class="header"><h1>Week 3</h1>
+        <p>In this week's task, I rendered my chosen piece in veriovio, begining by exporting it as a MusicXML file and an MEI file.</p>
     </div>
-
+    <div id="app">Verovio is loading...</div>
     <script type="module">
         import Verovio from 'https://www.verovio.org/javascript/app/verovio-app.js';
-
-        const appDiv = document.getElementById("app");
-
+        
         const options = {
-            defaultView: 'responsive',    // 'responsive' or 'document'
-            defaultZoom: 3,               // 0-7
-            enableResponsive: true,
-            enableDocument: true
-        };
-
-        // Correct relative path to your MEI file
-        const file = 'data/HalfNelson.mei';
-
-        // Create Verovio App instance
-        const app = new Verovio.App(appDiv, options);
-
-        // Fetch the MEI file and render
+            defaultView: 'responsive', // default is 'responsive', alternative is 'document'
+            defaultZoom: 3, // 0-7, default is 4
+            enableResponsive: true, // default is true
+            enableDocument: true // default is true
+        }
+        
+        // A MusicXML file
+        const file = 'data/HalfNelson.mei'; //Replace this with your own MEI file, but remember that JavaScript is case sensitive!
+        // A MEI file
+        //var file = 'https://www.verovio.org/editor/brahms.mei';
+        
+        const app = new Verovio.App(document.getElementById("app"), options);
         fetch(file)
-            .then(response => {
-                if (!response.ok) throw new Error(`Failed to load ${file}`);
+            .then(function(response) {
                 return response.text();
             })
-            .then(text => {
-                appDiv.innerText = "";  // clear loading message
+            .then(function(text) {
                 app.loadData(text);
-            })
-            .catch(error => {
-                console.error(error);
-                appDiv.innerText = "Failed to load the MEI file. Check the path.";
             });
     </script>
+    </div>
 </body>
 </html>
-
