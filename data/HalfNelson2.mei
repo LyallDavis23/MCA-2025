@@ -7,6 +7,9 @@
          <titleStmt xml:id="t1xwbtka">
             <title>Half Nelson</title>
             <respStmt>
+
+               <persName role="composer" startdate="1926" enddate="1991" auth="VIAF" auth.uri="http://viaf.org/viaf/97762193">Miles Davis</persName>
+
                <persName role="composer">Miles Davis</persName>
                <persName role="performer">John Coltrane</persName>
             </respStmt>
