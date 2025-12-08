@@ -31,6 +31,14 @@
         <p>In this week's task, I rendered my chosen piece in veriovio, begining by exporting it as a MusicXML file and an MEI file.</p>
     </div>
     <div id="app">Verovio is loading...</div>
+            <button id="loadAudio">Load Audio</button>
+  <button id="stopMIDI">Stop</button>
+  <button id="prevPageBtn" style="margin-left:20px;">Previous Page</button>
+  <button id="nextPageBtn" style="margin-left:8px;">Next Page</button>
+  <span id="pageIndicator" style="margin-left:20px;"></span>
+  <midi-player id="verovio-midi-player" sound-font="https://storage.googleapis.com/magentadata/js/soundfonts/sgm_plus" controls="false" style="display: none;">
+  </midi-player>
+  <div id="notation"></div>
     <script>
         const toolkit = new verovio.toolkit()
         
