@@ -85,7 +85,57 @@
         //         app.loadData(text);
         //     });
     </script>
-       <script>
+
+                
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv='cache-control' content='no-cache'> 
+  <meta http-equiv='expires' content='0'> 
+  <meta http-equiv='pragma' content='no-cache'>
+  
+  <title>Piece in Verovio</title><!-- Replace this with your own title -->
+  <link href="https://book.verovio.org/tutorials/midi.css" rel="stylesheet" type="text/css" />
+  <script src="https://www.verovio.org/javascript/latest/verovio-toolkit-wasm.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/combine/npm/tone@14.7.58,npm/@magenta/music@1.23.1/es6/core.js,npm/focus-visible@5,npm/html-midi-player@1.5.0"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfkit/0.13.0/pdfkit.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/blob-stream/0.1.3/blob-stream.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/svg-to-pdfkit@0.1.8/source.min.js"></script>
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 20px;
+    }
+    #notation {
+      border: 1px solid #ccc;
+      margin-top: 20px;
+      overflow-x: auto;
+    }
+    .currently-playing {
+      fill: #ff0000;
+      stroke: #ff0000;
+    }
+    #controls-bar {
+      display: flex;
+      align-items: center;
+      gap: 8px; /* space between buttons */
+      margin-bottom: 12px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Half Nelson</h1> <!-- Replace this text with a title for your piece -->
+  <button id="loadAudio">Load Audio</button>
+  <button id="stopMIDI">Stop</button>
+  <button id="prevPageBtn" style="margin-left:20px;">Previous Page</button>
+  <button id="nextPageBtn" style="margin-left:8px;">Next Page</button>
+  <span id="pageIndicator" style="margin-left:20px;"></span>
+  <midi-player id="verovio-midi-player" sound-font="https://storage.googleapis.com/magentadata/js/soundfonts/sgm_plus" controls="false" style="display: none;">
+  </midi-player>
+  <div id="notation"></div>
+
+
+  <script>
 document.addEventListener("DOMContentLoaded", () => {
     let tk = null;        // Verovio toolkit instance for display
     let meiLocation = "HalfNelson.mei"; // <--- update as needed
@@ -365,6 +415,7 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 });
 </script>
+</body>
     </div>
 </body>
 </html>
