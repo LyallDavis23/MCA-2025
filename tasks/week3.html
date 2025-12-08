@@ -41,52 +41,6 @@
   <midi-player id="verovio-midi-player" sound-font="https://storage.googleapis.com/magentadata/js/soundfonts/sgm_plus" controls="false" style="display: none;">
   </midi-player>
   <div id="notation"></div>
-    <script>
-        const toolkit = new verovio.toolkit()
-        
-        const options = {
-            defaultView: 'responsive', // default is 'responsive', alternative is 'document'
-            defaultZoom: 3, // 0-7, default is 4
-            enableResponsive: true, // default is true
-            enableDocument: true // default is true
-        }
-        toolkit.setOptions(options)
-
-        fetch('HalfNelson.mei')
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Failed to load MEI file');
-                }
-                return response.text();
-            })
-            .then(meiContent => {
-                // Load the MEI content into Verovio
-                toolkit.loadData(meiContent);
-                const svg = toolkit.renderToSVG(1);
-                document.getElementById('app').innerHTML = svg;
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                document.getElementById('app').innerHTML =
-                    '<p>Error loading MEI file. Make sure the file exists and is named correctly.</p>';
-            });
-
-        //coming from a compSci student, this code is outdated and plainly doesnt work
-        
-        // A MusicXML file
-        // const file = 'HalfNelson.mei'; //Replace this with your own MEI file, but remember that JavaScript is case sensitive!
-        // // A MEI file
-        // //var file = 'https://www.verovio.org/editor/brahms.mei';
-        
-        // const app = new Ver(document.getElementById("app"), options);
-        // fetch(file)
-        //     .then(function(response) {
-        //         return response.text();
-        //     })
-        //     .then(function(text) {
-        //         app.loadData(text);
-        //     });
-    </script>
 
                 
 
