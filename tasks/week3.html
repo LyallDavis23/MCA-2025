@@ -52,14 +52,6 @@
             .then(function(text) {
                 app.loadData(text);
             });
-        fetch(file)
-    .then(function(response) {
-        return response.text();
-    })
-    .then(function(text) {
-        console.log("MEI file loaded:", text); // Check if the file is loaded correctly
-        app.loadData(text);
-    });
     </script>
     </div>
 </body>
